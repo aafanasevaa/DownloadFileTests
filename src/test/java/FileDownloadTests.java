@@ -5,21 +5,24 @@ import com.codeborne.xlstest.XLS;
 import org.apache.commons.io.IOUtils;
 import org.junit.jupiter.api.Test;
 import java.io.*;
+
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
-public class FileDownloadTests extends TestData {
+public class FileDownloadTests extends TestBase {
     static String URL = "https://accounts.test.goodwix.com/login";
     static String URL_MES = "https://messenger.test.istock.link";
 
     @Test
-    void txtLoadingTestInMessenger() throws FileNotFoundException, Exception {
+    void txtLoadingTestInMessenger() throws FileNotFoundException {
         open(URL_MES);
         $("input[name='email']").setValue(login);
         $("input[name='password']").setValue(password);
         $("button[name='loginUserButton']").click();
+
+
         $(".cws-chat-item__desc").click();
 
         $(".cw-input-msg__btn-attach").click();
