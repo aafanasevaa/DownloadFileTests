@@ -4,6 +4,7 @@ import com.codeborne.selenide.Selenide;
 import com.codeborne.xlstest.XLS;
 import org.apache.commons.io.IOUtils;
 import org.junit.jupiter.api.Test;
+
 import java.io.*;
 
 import static com.codeborne.selenide.Selectors.byText;
@@ -16,7 +17,7 @@ public class FileDownloadTests extends TestBase {
     static String URL_MES = "https://messenger.test.istock.link";
 
     @Test
-    void txtLoadingTestInMessenger() throws FileNotFoundException {
+    void loadTestInMessenger() throws FileNotFoundException {
         open(URL_MES);
         $("input[name='email']").setValue(login);
         $("input[name='password']").setValue(password);
@@ -30,7 +31,7 @@ public class FileDownloadTests extends TestBase {
     }
 
     @Test
-    void txtDownloadTestInMessenger() throws FileNotFoundException, Exception {
+    void downloadTestInMessenger() throws FileNotFoundException, Exception {
         Configuration.proxyEnabled = true;
         Configuration.fileDownload = FileDownloadMode.PROXY;
         open(URL_MES);
@@ -49,7 +50,7 @@ public class FileDownloadTests extends TestBase {
 
 
     @Test
-    void xlsPriceLoadingTest() {
+    void loadXlsPriceLoadTest() {
         open(URL);
         $("input[name='email']").setValue(login);
         $("input[name='password']").setValue(password);
@@ -61,7 +62,7 @@ public class FileDownloadTests extends TestBase {
     }
 
     @Test
-    void xlsPriceDownloadTest() throws FileNotFoundException, Exception {
+    void downloadXlsPriceTest() throws FileNotFoundException, Exception {
         open(URL);
         $("input[name='email']").setValue(login);
         $("input[name='password']").setValue(password);
